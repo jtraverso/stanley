@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: v0.4
+project:
+  name: Stanley's acyclic orientations and chromatic reciprocity
+  description: For every finite simple graph and k ≥ 0, the signed evaluation (−1)^n χ_G(−k) counts
+    acyclic orientations paired with weakly compatible Fin k colorings (Stanley 1973, Theorem 1.2);
+    at k = 1 it counts acyclic orientations (Corollary 1.3). Includes positive-evaluation correctness,
+    induced-subgraph convolution, and the finite equivalence between well-foundedness and no directed
+    cycles.
+  authors:
+  - Juan Pablo Traverso Gianini
+  license: Apache-2.0
+  responsible_maintainers:
+  - Juan Pablo Traverso Gianini
+classification:
+  arxiv:
+  - math.CO
+  msc2020:
+  - 05C15
+  - 05C20
+  - 05C30
+sources:
+- title: Acyclic orientations of graphs
+  authors:
+  - Richard P. Stanley
+  id: doi:10.1016/0012-365X(73)90108-8
+  type: paper
+  location: Discrete Mathematics 5 (1973), 171–178; author-hosted 2006 reprint at https://math.mit.edu/~rstan/pubs/pubfiles/18.pdf
+  relationship: formalizes
+  note: Theorem 1.2 and Corollary 1.3. The author-hosted reprint was consulted for statements and numbering.
+    New proof uses source inclusion–exclusion and palette convolution rather than the original deletion–contraction
+    proof. Later digraph enumeration and binomial-algebra results are not included.
+  license: all rights reserved
+  author_endorsement: n/a
+related_formalizations:
+- id: https://github.com/anlucia/ChromaticPolynomial/tree/6fe1fcdab3684ad78cbdf08d1124b4f0fdac7a8b
+  relationship: builds-on
+  note: Ports Angelo Lucia's Apache-2.0 positive evaluation theorem and its spanning-subgraph/connected-component
+    helpers. Explicitly bridges the ported definition to the canonical edge-subset polynomial. See THIRD_PARTY.md.
+status:
+  scope: Finite simple graphs, any universe; arbitrary finite palettes for positive evaluations, all
+    integer a,b for convolution, and all k ≥ 0 for chromatic reciprocity, including empty graphs and
+    k = 0. Five selected theorem statements and four definitions pass Comparator. No Solution/library
+    placeholders or custom axioms. Challenge has five intentional theorem placeholders and no definition
+    placeholders.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+automation:
+  methods:
+  - method: agent
+    models:
+    - OpenAI Codex
+    framework: Codex
+    tool_setup: Ported and attributed the existing chromatic-polynomial evaluation proof; constructed
+      the new source inclusion–exclusion, convolution, negative-evaluation and compatible-pair proofs.
+      Used strict Lean builds, axiom auditing, finite boundary cases, sandboxed Comparator, and Lean/NanoDa
+      kernels. GitHub operations use the connected GitHub plugin.
+    prompting_notes: Human-directed instructions in Spanish to continue the prioritized backlog, favoring
+      reuse. No external proving service was used.
+  notes: Costs and wall time were not tracked. Third-party proof provenance is recorded separately;
+    the positive-evaluation argument is inherited, not claimed as new work. New proofs were generated
+    and self-assessed by the implementing agent.
+fidelity:
+  divergences: The chromatic polynomial is independently defined over ℤ by the standard edge-subset
+    formula; each subgraph spans the whole vertex set. Acyclic orientations are edge-covering, edge-respecting
+    relations with WellFounded, proved equivalent on finite types to no TransGen cycle. CompatiblePair
+    uses colors Fin k, increasing weakly along arcs. The paper uses colors 1..k, decreasing weakly;
+    CompatiblePair.paperConventionEquiv proves the reversal-of-palette equivalence. Counting uses Nat.card
+    cast to ℤ. Empty graphs and zero colors are included. Only Theorem 1.2, Corollary 1.3 and stated
+    infrastructure are covered, not the whole paper.
+review:
+  status: self-assessed
+  reviewers:
+  - OpenAI Codex (implementing agent, self-assessment)
+  notes: Checked statements against the author-hosted reprint, standard graph/coloring definitions,
+    polynomial independence from orientation counts, finite cycle-condition equivalence, palette convention,
+    and empty/zero-color/K2 examples. Five selected results and four definitions match an independently
+    compiled Challenge; Lean and NanoDa accept the solution. Only propext, Classical.choice and Quot.sound
+    occur. No independent human review or mathematical novelty is claimed. Prepared workflows and local
+    verification do not constitute a Palomar registration.
+alignment:
+  namespace: Stanley
+  statements:
+  - source: Positive evaluations count proper colorings; ported from Angelo Lucia
+    lean: Stanley.eval_card
+    module: Challenge
+    status: proved
+  - source: Induced-subgraph chromatic convolution for all integer arguments
+    lean: Stanley.convolution
+    module: Challenge
+    status: proved
+  - source: Stanley (1973), Theorem 1.2
+    lean: Stanley.compatible_count_eq
+    module: Challenge
+    status: proved
+  - source: Stanley (1973), Corollary 1.3
+    lean: Stanley.acyclic_count_eq
+    module: Challenge
+    status: proved
+  - source: 'Finite equivalence: well-foundedness and no directed cycle'
+    lean: Stanley.wellFounded_iff_no_cycle
+    module: Challenge
+    status: proved
+acknowledgements: Angelo Lucia's ChromaticPolynomial formalization (Apache-2.0); Mathlib and the Lean
+  community.

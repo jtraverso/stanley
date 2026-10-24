@@ -1,0 +1,33 @@
+Build completed successfully (1516 jobs).
+ℹ [1519/1520] Built Audit (989ms)
+info: Audit.lean:14:0: 'Stanley.eval_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:15:0: 'Stanley.convolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:16:0: 'Stanley.compatible_count_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:17:0: 'Stanley.acyclic_count_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit.lean:18:0: 'Stanley.wellFounded_iff_no_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (1520 jobs).
+⚠ [1277/1278] Replayed Challenge
+warning: Challenge.lean:53:8: declaration uses `sorry`
+warning: Challenge.lean:59:8: declaration uses `sorry`
+warning: Challenge.lean:65:8: declaration uses `sorry`
+warning: Challenge.lean:70:8: declaration uses `sorry`
+warning: Challenge.lean:81:8: declaration uses `sorry`
+Build completed successfully (1278 jobs).
+Resolving dependencies
+Building Challenge
+⚠ [1277/1278] Replayed Challenge
+warning: Challenge.lean:53:8: declaration uses `sorry`
+warning: Challenge.lean:59:8: declaration uses `sorry`
+warning: Challenge.lean:65:8: declaration uses `sorry`
+warning: Challenge.lean:70:8: declaration uses `sorry`
+warning: Challenge.lean:81:8: declaration uses `sorry`
+Build completed successfully (1278 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Stanley.eval_card, Stanley.convolution, Stanley.compatible_count_eq, Stanley.acyclic_count_eq, Stanley.wellFounded_iff_no_cycle, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam, Stanley.chromaticPolynomial, Stanley.IsAcyclicOrientation, Stanley.orientationCount, Stanley.compatibleCount] from Challenge
+Building Solution
+Build completed successfully (1516 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Stanley.eval_card, Stanley.convolution, Stanley.compatible_count_eq, Stanley.acyclic_count_eq, Stanley.wellFounded_iff_no_cycle, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam, Stanley.chromaticPolynomial, Stanley.IsAcyclicOrientation, Stanley.orientationCount, Stanley.compatibleCount] from Solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!

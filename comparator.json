@@ -1,0 +1,23 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Stanley.eval_card",
+    "Stanley.convolution",
+    "Stanley.compatible_count_eq",
+    "Stanley.acyclic_count_eq",
+    "Stanley.wellFounded_iff_no_cycle"
+  ],
+  "definition_names": [
+    "Stanley.chromaticPolynomial",
+    "Stanley.IsAcyclicOrientation",
+    "Stanley.orientationCount",
+    "Stanley.compatibleCount"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
